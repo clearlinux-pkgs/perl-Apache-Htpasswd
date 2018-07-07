@@ -1,0 +1,114 @@
+libapache-htpasswd-perl (1.9-1) unstable; urgency=medium
+
+  * Take over for the Debian Perl Group; Closes: #837522 -- RFA/ITA
+  * debian/control: Added: Vcs-Git field (source stanza); Vcs-Browser
+    field (source stanza). Changed: Homepage field changed to
+    metacpan.org URL; Maintainer set to Debian Perl Group <pkg-perl-
+    maintainers@lists.alioth.debian.org> (was: Tatsuki Sugiura
+    <sugi@nemui.org>).
+  * debian/watch: use metacpan-based URL.
+  * Mark package as autopkgtest-able.
+  * Declare compliance with Debian Policy 4.1.0.
+  * Drop unneeded version constraints.
+  * Switch to source format "3.0 (quilt)".
+  * Drop uupdate call from debian/watch.
+  * Switch from cdbs to dh(1).
+  * debian/copyright: switch formatting to Copyright-Format 1.0.
+  * Add /me to Uploaders.
+  * Update short and long description.
+  * Split Build-Depends and Build-Depends-Indep.
+
+  * New upstream release.
+  * Add spelling.patch.
+
+ -- gregor herrmann <gregoa@debian.org>  Fri, 08 Sep 2017 23:35:59 +0200
+
+libapache-htpasswd-perl (1.8-1.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix "FTBFS: dh_clean: Please specify the compatibility level in
+    debian/compat": use debhelper compatibility level 9.
+    (Closes: #829176)
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 09 Jul 2016 10:06:29 +0200
+
+libapache-htpasswd-perl (1.8-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * patch HTpasswd.pm, META.yml, Makefile.PL and test.pl to use
+    Digest::SHA from perl core instead of Digest::SHA1. The patch also
+    fixes the test to check for Digest::SHA instead of Digest::MD5 when
+    testing SHA1-hashed passwords. Drop libdigest-sha1-perl from
+    (Build-)Depends. (Closes: #636853).
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 20 Aug 2011 09:38:28 +0200
+
+libapache-htpasswd-perl (1.8-1) unstable; urgency=low
+
+  * New upstream release. (Closes: #468266, 493050)
+    NMU Patch was applied. Thanks Jaldhar H. Vyas.
+
+ -- Tatsuki Sugiura <sugi@nemui.org>  Sat, 03 Jan 2009 23:50:57 +0900
+
+libapache-htpasswd-perl (1.8-0.1) unstable; urgency=low
+
+  * NMU.
+  * New upstream version (Closes: #439461)
+  * Added dependencies.
+  * Fixed lintian errors
+    + standards version 3.7.3
+    + Build-Depends instead of Build-Depends-Indep
+    + proper copyright notice.
+
+ -- Jaldhar H. Vyas <jaldhar@debian.org>  Wed, 27 Feb 2008 19:38:30 -0500
+
+libapache-htpasswd-perl (1.6.0-1) unstable; urgency=low
+
+  * New upstream release (Closes: #329490, #177023)
+
+ -- Tatsuki Sugiura <sugi@nemui.org>  Thu, 27 Oct 2005 20:49:45 +0900
+
+libapache-htpasswd-perl (1.5.5-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Tatsuki Sugiura <sugi@nemui.org>  Sat, 31 Aug 2002 21:37:03 +0900
+
+libapache-htpasswd-perl (1.5.3-3) unstable; urgency=low
+
+  * build script has been changed; package was build with binary-indep (Closes: #157461)
+
+ -- Tatsuki Sugiura <sugi@nemui.org>  Wed, 21 Aug 2002 07:13:56 +0900
+
+libapache-htpasswd-perl (1.5.3-2) unstable; urgency=low
+
+  * source package has been updated for new policy
+  * dependency has been fixed
+  * upload debian offical archive (Closes: #150195)
+
+ -- Tatsuki Sugiura <sugi@nemui.org>  Mon, 17 Jun 2002 11:50:05 +0900
+
+libapache-htpasswd-perl (1.5.3-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Tatsuki Sugiura <sugi@nemui.org>  Mon, 17 Jun 2002 11:44:53 +0900
+
+libapache-htpasswd-perl (1.5.2-1) unstable; urgency=low
+
+  * upstream update (applied 1.5.1p1-1's newline patch)
+
+ -- Tatsuki Sugiura <sugi@assist.media.nagoya-u.ac.jp>  Sat,  7 Apr 2001 15:40:37 +0900
+
+libapache-htpasswd-perl (1.5.1p1-1) unstable; urgency=low
+
+  * upstream update
+  * newline patch applied 
+
+ -- Tatsuki Sugiura <sugi@assist.media.nagoya-u.ac.jp>  Wed,  4 Apr 2001 03:59:28 +0900
+
+libapache-htpasswd-perl (1.5-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Tatsuki Sugiura <sugi@assist.media.nagoya-u.ac.jp>  Thu, 29 Mar 2001 07:36:02 +0900
