@@ -4,7 +4,7 @@
 #
 Name     : perl-Apache-Htpasswd
 Version  : 1.9
-Release  : 8
+Release  : 9
 URL      : https://cpan.metacpan.org/authors/id/K/KM/KMELTZ/Apache-Htpasswd-1.9.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/K/KM/KMELTZ/Apache-Htpasswd-1.9.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/liba/libapache-htpasswd-perl/libapache-htpasswd-perl_1.9-1.debian.tar.xz
@@ -24,6 +24,7 @@ use Apache::Htpasswd;
 Summary: dev components for the perl-Apache-Htpasswd package.
 Group: Development
 Provides: perl-Apache-Htpasswd-devel = %{version}-%{release}
+Requires: perl-Apache-Htpasswd = %{version}-%{release}
 
 %description dev
 dev components for the perl-Apache-Htpasswd package.
@@ -42,7 +43,7 @@ license components for the perl-Apache-Htpasswd package.
 cd ..
 %setup -q -T -D -n Apache-Htpasswd-1.9 -b 1
 mkdir -p deblicense/
-mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Apache-Htpasswd-1.9/deblicense/
+cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Apache-Htpasswd-1.9/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -80,7 +81,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.1/Apache/Htpasswd.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Apache/Htpasswd.pm
 
 %files dev
 %defattr(-,root,root,-)
