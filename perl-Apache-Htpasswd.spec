@@ -4,7 +4,7 @@
 #
 Name     : perl-Apache-Htpasswd
 Version  : 1.9
-Release  : 12
+Release  : 13
 URL      : https://cpan.metacpan.org/authors/id/K/KM/KMELTZ/Apache-Htpasswd-1.9.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/K/KM/KMELTZ/Apache-Htpasswd-1.9.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/liba/libapache-htpasswd-perl/libapache-htpasswd-perl_1.9-1.debian.tar.xz
@@ -12,6 +12,7 @@ Summary  : ~
 Group    : Development/Tools
 License  : Artistic-1.0 GPL-1.0
 Requires: perl-Apache-Htpasswd-license = %{version}-%{release}
+Requires: perl-Apache-Htpasswd-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -38,18 +39,28 @@ Group: Default
 license components for the perl-Apache-Htpasswd package.
 
 
+%package perl
+Summary: perl components for the perl-Apache-Htpasswd package.
+Group: Default
+Requires: perl-Apache-Htpasswd = %{version}-%{release}
+
+%description perl
+perl components for the perl-Apache-Htpasswd package.
+
+
 %prep
 %setup -q -n Apache-Htpasswd-1.9
-cd ..
-%setup -q -T -D -n Apache-Htpasswd-1.9 -b 1
+cd %{_builddir}
+tar xf %{_sourcedir}/libapache-htpasswd-perl_1.9-1.debian.tar.xz
+cd %{_builddir}/Apache-Htpasswd-1.9
 mkdir -p deblicense/
-cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Apache-Htpasswd-1.9/deblicense/
+cp -r %{_builddir}/debian/* %{_builddir}/Apache-Htpasswd-1.9/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -59,7 +70,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -68,7 +79,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Apache-Htpasswd
-cp deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Apache-Htpasswd/deblicense_copyright
+cp %{_builddir}/Apache-Htpasswd-1.9/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Apache-Htpasswd/c6f8a5f4ccac6409ee2e962aa7debb7532b78acc
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -81,7 +92,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Apache/Htpasswd.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -89,4 +99,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Apache-Htpasswd/deblicense_copyright
+/usr/share/package-licenses/perl-Apache-Htpasswd/c6f8a5f4ccac6409ee2e962aa7debb7532b78acc
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Apache/Htpasswd.pm
