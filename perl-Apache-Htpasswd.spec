@@ -4,7 +4,7 @@
 #
 Name     : perl-Apache-Htpasswd
 Version  : 1.9
-Release  : 13
+Release  : 14
 URL      : https://cpan.metacpan.org/authors/id/K/KM/KMELTZ/Apache-Htpasswd-1.9.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/K/KM/KMELTZ/Apache-Htpasswd-1.9.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/liba/libapache-htpasswd-perl/libapache-htpasswd-perl_1.9-1.debian.tar.xz
@@ -79,7 +79,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Apache-Htpasswd
-cp %{_builddir}/Apache-Htpasswd-1.9/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Apache-Htpasswd/c6f8a5f4ccac6409ee2e962aa7debb7532b78acc
+cp %{_builddir}/debian/copyright %{buildroot}/usr/share/package-licenses/perl-Apache-Htpasswd/c6f8a5f4ccac6409ee2e962aa7debb7532b78acc
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -103,4 +103,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/Apache/Htpasswd.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Apache/Htpasswd.pm
