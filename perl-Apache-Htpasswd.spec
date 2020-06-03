@@ -4,7 +4,7 @@
 #
 Name     : perl-Apache-Htpasswd
 Version  : 1.9
-Release  : 14
+Release  : 15
 URL      : https://cpan.metacpan.org/authors/id/K/KM/KMELTZ/Apache-Htpasswd-1.9.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/K/KM/KMELTZ/Apache-Htpasswd-1.9.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/liba/libapache-htpasswd-perl/libapache-htpasswd-perl_1.9-1.debian.tar.xz
@@ -103,4 +103,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.2/Apache/Htpasswd.pm
+/usr/lib/perl5/vendor_perl/5.30.3/Apache/Htpasswd.pm
